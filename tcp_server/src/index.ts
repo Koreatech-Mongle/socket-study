@@ -5,6 +5,7 @@ net.bytesWritten = 300000;
 net.bufferSize = 300000;
 const server = net.createServer()
 server.on('connection', function(client : any) {
+    console.log('client connected');
     client.on('drain', () => {
         console.log('client occured drain -> write buffer is empty');
     });
