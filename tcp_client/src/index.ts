@@ -1,11 +1,12 @@
 const net = require('net');
 
-net.buffersize = 300000;
+net.bufferSize = 300000;
 net.byteRead = 300000;
 const client = new net.Socket();
 client.connect({port: 8107, host:'localhost'}, function() {
     console.log(' Connected: ' + 8107 + ':' + 'localhost');
     client.setTimeout(500);
+    client.write('world!\r\n');
     client.on('drain', () =>  {
         console.log('clinet occured drain >> write buffer is empty');
     })
