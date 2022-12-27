@@ -15,7 +15,7 @@ function changeFile() {
     var file = input?.files?.[0];
     var reader = new FileReader();
     reader.addEventListener('load', readFile);
-    reader.readAsArrayBuffer(file);
+    reader.readAsArrayBuffer(file as Blob);
 }
 
 input?.addEventListener('change', changeFile);
